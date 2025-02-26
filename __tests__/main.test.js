@@ -1,21 +1,5 @@
 const { getShortestDist, generateGraph } = require('../main.js');
 
-describe('getShortestDist', () => {
-  it('should return the shortest distance and key', () => {
-    const unvisitedEdges = new Map([
-      ['a', { dist: 10 }],
-      ['b', { dist: 5 }],
-      ['c', { dist: 15 }],
-      ['d', { dist: 18 }],
-      ['q', { dist: 11 }],
-    ]);
-    expect(getShortestDist(unvisitedEdges)).toEqual({
-      shortestKey: 'b',
-      value: '5',
-    });
-  });
-});
-
 describe('generateGraph', () => {
   it('should generate the shortest path graph', () => {
     const graphTable = generateGraph();

@@ -16,20 +16,16 @@ Object.keys(edgesData).forEach((key) => {
 });
 const unvisitedEdges = structuredClone(graphTable);
 
-const getShortestDist = (unvisitedEdges) => {
-  let shortestKey = null;
-  let initialValue = Infinity;
-  for (const [key, { dist }] of unvisitedEdges) {
-    const currentDist = dist;
-    if (currentDist < initialValue) {
-      initialValue = currentDist;
-      shortestKey = key;
-    }
-  }
+const getShortestDist = (unvisitedEdgesProp) => {
+  const sorted = [...unvisitedEdgesProp.entries()].sort(
+    ([, { dist }], [, { dist: bDist }]) => dist > bDist
+  );
+
+  const [shortestKey, { dist }] = sorted?.at(0) ?? [null, { dist: Infinity }];
 
   return {
     shortestKey,
-    value: initialValue,
+    value: dist,
   };
 };
 

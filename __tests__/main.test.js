@@ -6,10 +6,12 @@ describe('getShortestDist', () => {
       ['a', { dist: 10 }],
       ['b', { dist: 5 }],
       ['c', { dist: 15 }],
+      ['d', { dist: 18 }],
+      ['q', { dist: 11 }],
     ]);
     expect(getShortestDist(unvisitedEdges)).toEqual({
       shortestKey: 'b',
-      value: 5,
+      value: '5',
     });
   });
 });
